@@ -7,8 +7,12 @@ import csv
 # TOTAL TIME
 T = 1
 
+#LOAD FILE
+
+JSON = "Newton/NewtonHalf.json" 
+
 # LOAD DATA FROM IMAGE
-with open("Kiwi/kiwi.json") as jsonFile:
+with open(JSON) as jsonFile:
     data = json.load(jsonFile)
     curves = data['curves']
 
@@ -46,9 +50,12 @@ def f(t):
             y2 = curves[curveIndex]['y2']
             X = ((1 - tc)**3)*x0 + 3*((1 - tc)**2)*tc*x1 + 3*(1 - tc)*(tc**2)*x2 + (tc**3)*x
             Y = ((1 - tc)**3)*y0 + 3*((1 - tc)**2)*tc*y1 + 3*(1 - tc)*(tc**2)*y2 + (tc**3)*y
-        elif curves[curveIndex]['code'] == 'L':
+        elif curves[curveIndex]['code'] == 'L' or curves[curveIndex]['code'] == 'V' or curves[curveIndex]['code'] == 'H':
             X = (1 - tc)*x0 + tc*x
             Y = (1 - tc)*y0 + tc*y
+        else:
+            print("ERRORRRRRRRRRRRRRRRRRRRRRRRRR!!!!!")
+            print(curves[curveIndex]['code'])
         return [X, Y]
     else:
         print("Input out of domain")
@@ -56,7 +63,7 @@ def f(t):
 # TESTING
 t = 0
 while t < T:
-    with open("../MathWork/dataPoints.csv", 'a', newline='') as csvFile:
+    with open("../MathWork/NewtonHalf.csv", 'a', newline='') as csvFile:
         writer = csv.writer(csvFile, delimiter=',')
         writer.writerow(f(t))
     t = t + 0.001
