@@ -13,7 +13,7 @@ import numpy as np
 T = 1
 
 # LOAD FILE
-JSON = "Bhavya/BhavyaFull.json"
+JSON = "Newton/NewtonFull.json"
 NV = 170
 SlowDown = 0.1
 
