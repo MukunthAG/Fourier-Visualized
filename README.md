@@ -9,3 +9,5 @@ Requirements -
 The CVF.py contains the info (coordinates from JSON File) to be fed into Fourier.py. The code after the TESTING can be modified to get a CSV file which can be loaded onto MATLAB or Octave
 
 The Fourier.py contains the necessary functions to obtain the initial conditions for the epicycle setup and renders it.
+
+Check out the Animation here - https://youtu.be/MgfBgL7P_6k
